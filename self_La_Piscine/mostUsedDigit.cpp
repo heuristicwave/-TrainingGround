@@ -1,23 +1,28 @@
-#include<cstdio>
+#include <cstdio>
 
 int count[10];
-
-int main() {
+int main(){
 	freopen("input.txt", "rt", stdin);
-
+	
+	char num[100];
 	int digit, res;
-	int max = -2147483648;	
-	char arr[100];
+	int max = -2147000000;
 	
-	scanf("%s", &arr);
+	scanf("%s", &num); // array! %s!!
 	
-	// !!! using ASCII !!!
-	for(int i=0; arr[i]!='\0'; i++){
-		digit = arr[i]-48;
+	for(int i=0; num[i]!= '\0'; i++){
+		digit = num[i] - 48;
 		count[digit]++;
 	}
 	
+	for(int i=0; i < 10; i++){
+		if(count[i] >= max){
+			max = count[i];
+			res = i;
+		}
+	}
+	
 	printf("%d\n", res);
-		
+	
 	return 0;
 }
