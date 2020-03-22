@@ -13,7 +13,8 @@ struct Data {
 		money = a;
 		when = b;
 	}
-	// Ascending order
+	/// Descending order
+	// The form of large data in front and small data in the back.
 	bool operator< (const Data &b) const {
 		return when > b.when;
 	}
