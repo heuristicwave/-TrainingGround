@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+//	ios_base::sync_with_stdio(false);
+//	cin.tie(NULL);	
+	freopen("input.txt", "rt", stdin);
+	
+	int n, i, j;
+	int res = 0;
+	cin >> n;
+	
+	vector<int> arr(n+1), dy(n+1);
+
+	for(i=1; i<=n; i++){
+		cin >> arr[i];
+	}
+	dy[1] = 1;
+	for(i=2; i<=n; i++){
+		int max = 0;
+		/// Search previous array !!
+		for(j=i-1; j>=1; j--){
+			if(arr[j]<arr[i] && dy[j]>max){
+				max = dy[j];
+			}
+		}
+		dy[i] = max + 1;
+		if(dy[i] > res)	res = dy[i];
+	}
+	
+	cout << res;
+	return 0;
+}
