@@ -18,11 +18,18 @@
 # For String
 # print('\n'.join(result))
 
-# A 부분을 쪼개서 int로 받은다음 있다면 1로 바꿈
+# A 부분을 쪼개서 int로 받은 다음 있다면 1로 바꿈
 # 없는 수는 참조 못하고 error
 N, A = int(input()), {i: 1 for i in map(int, input().split(" "))}
 M = input()
 
+# !! Example !!
+# print(f'A : {A}')
+# >>> A : {4: 1, 1: 1, 5: 1, 2: 1, 3: 1}
+
+# i가 입력받는 매개변수 역할
 for i in list(map(int, input().split())):
-    print(A.get(i, 0))  # 새로 입력받아 참조대상에 없으면 0으로 채움
+    print(A.get(i, 0))  # 새로 입력받아 참조대상에 없으면 0으로 표시
     # print(1 if i in A else 0)
+
+print(f'A : {A}')
