@@ -1,6 +1,5 @@
 S, tmp = input(), ""
 
-print(f"S is : {S} \nTmp is : {tmp}")
 ck = False
 
 for i in S:
@@ -13,17 +12,18 @@ for i in S:
             print(" ", end="")
     elif i == '<':
         ck = True
-        print("<", end="")
+        print(tmp[::-1] + i, end="")
+        tmp = ""
     elif i == '>':
         ck = False
-        print(">", end="")
+        print(i, end="")
     else:  # Print alphabet and number
         if ck:
             print(i, end="")
         else:
             tmp += i
 
-print(tmp[::-1], end=" ")
+print(tmp[::-1])
 
 
 # Using Python Array[::] (https://blog.wonkyunglee.io/3)
