@@ -1,4 +1,4 @@
-import sys  # Runtime error prevetion
+import sys  # Runtime error prevention
 sys.setrecursionlimit(10000)    # Release the limit to 10000
 
 T = int(input())    # testcase
