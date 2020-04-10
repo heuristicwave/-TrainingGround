@@ -1,9 +1,7 @@
 # !!! Time Out !!!
 
-# N = input()
-# A = list(map(int, input().split(" ")))
-# M = input()
-# B = list(map(int, input().split(" ")))
+# N, A = int(input()), list(map(int, input().split()))
+# M, B = int(input()), list(map(int, input().split()))
 
 # result = []
 # for i in range(len(B)):
@@ -17,6 +15,20 @@
 
 # For String
 # print('\n'.join(result))
+
+# Using set
+# !! set is hash based, so it is faster than list !!
+n = int(input())
+array = set(map(int, input().split()))
+m = int(input())
+x = list(map(int, input().split()))
+
+for i in x:
+    if i in array:
+        print('0')
+    else:
+        print('1')
+
 
 # A 부분을 쪼개서 int로 받은 다음 있다면 1로 바꿈
 # 없는 수는 참조 못하고 error
