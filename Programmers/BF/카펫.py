@@ -4,7 +4,7 @@ def solution(brown, yellow):
     for i in range(1, yellow+1):
         if yellow % i == 0:
             vertical = i
-            horizontal = int(yellow / i)
+            horizontal = yellow // i  # int(yellow / i)
             if (vertical + horizontal) * 2 + 4 == brown:
                 # if vertical > horizontal:
                 #     vertical, horizontal = horizontal, vertical
