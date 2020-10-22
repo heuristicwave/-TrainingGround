@@ -5,11 +5,15 @@ Error Handling
 - 3. Cache Hit 최신화 작업 (tc : 11, 18, 20) 
 
 # Error 3 : Before 
+Cache가 [Jeju, Pangyo, NewYork] 일 때,
+Pangyo가 i로 들어오면 Jeju를 popleft하고 append 하면서 순서 침해
+
 while True:
     tmp = cache.popleft()
     if tmp == i:
         break
     cache.append(tmp)
+
 # Error 3 : After
 cache.remove(city)
 
