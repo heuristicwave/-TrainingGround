@@ -45,3 +45,23 @@ for i in product(sorted(A), repeat=M):
 # >>> : (1 1) (1 7) (1 8) (1 9) (7 7) (7 8) (7 9) (8 8) (8 9) (9 9)
 for i in combinations_with_replacement(sorted(A), M):
     print(' '.join(map(str, list(i))))
+
+# 15663 : 중복이 제거된 순열
+# >>> (1 7) (1 9) (7 1) (7 9) (9 1) (9 7) (9 9)
+for i in sorted(set(permutations(A, M))):
+    print(' '.join(map(str, list(i))))
+
+# 15664 : 중복이 제거된 조합
+# >>> (1 7) (1 9) (7 9) (9 9)
+for i in sorted(set(combinations(sorted(A), M))):
+    print(' '.join(map(str, list(i))))
+
+# 15665 : 중복이 제거된 중복순열
+# >>> (1 1) (1 7) (1 9) (7 1) (7 7) (7 9) (9 1) (9 7) (9 9)
+for i in sorted(set(product(A, repeat=M))):
+    print(' '.join(map(str, list(i))))
+
+# 15666 : 중복이 제거된 중복순열
+# >>> (1 1) (1 7) (1 9) (7 7) (7 9) (9 9)
+for i in sorted(set(combinations_with_replacement(sorted(A), M))):
+    print(' '.join(map(str, list(i))))
