@@ -1,4 +1,3 @@
-
 # 코드 출처 : https://velog.io/@seovalue
 
 from itertools import permutations
