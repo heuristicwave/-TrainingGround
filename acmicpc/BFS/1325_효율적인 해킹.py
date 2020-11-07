@@ -25,8 +25,7 @@ def bfs(v):
     return count
 
 
-result = []
-max_value = -1
+result, max_value = [], -1
 
 for i in range(1, n+1):
     c = bfs(i)
@@ -39,5 +38,28 @@ for i in range(1, n+1):
         max_value = c
         # print(f'2: result:{result} / max_value{max_value}')
 
+# print(" ".join(map(str, result)))
 for e in result:
     print(e, end=" ")
+
+################## !!! 시 간 초 과 !!! ##################
+'''
+a -> b, a -> c, b -> c
+방문 체크를 하지 않기체 c를 중복 체크
+'''
+
+
+def bfs2(start):
+    q = deque()
+    q.append(start)
+    visited = [False] * (n + 1)
+
+    cnt = 1
+    while q:
+        v = q.popleft()
+        visited[v] = True
+        for i in adj[v]:
+            if not visited[i]:
+                q.append(i)
+                cnt += 1
+    return cnt
