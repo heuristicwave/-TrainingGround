@@ -1,26 +1,17 @@
-n, m = map(int, input().split())
-array = list(map(int, input().split(' ')))
+# Reference - https://gist.github.com/inspirit941/db8054cbffbb7c44299d8fde0e71c163
 
-min_element = min(array)
-min_loc = array.index(min_element)
+import math
 
-answer = 0
+n, k = map(int, input().split())
+a = list(map(int, input().split(' ')))
 
-# 중복되는 min_loc 빼기, 중복처리 제대로 못함...
-res_list = [i for i, value in enumerate(array) if value == min_element]
-if len(res_list) > 1:
-    answer -= len(res_list) - 1
+min_pos = a.index(min(a))
+answer = math.inf  # 부동소수점 양의 무한대
 
-left, right = 0, 0
-if min_loc == m:
-    right -= 1
-while min_loc > 0:
-    min_loc -= (m-1)
-    left += 1
+for i in range(k):
+    left, right = a[:min_pos-i], a[min_pos+k-i:]
+    left_cnt = len(left) // (k-1) + (1 if len(left) % (k-1) else 0)
+    right_cnt = len(right) // (k-1) + (1 if len(right) % (k-1) else 0)
+    answer = min(answer, 1 + left_cnt + right_cnt)
 
-min_loc = array.index(min_element)
-while min_loc < n:
-    min_loc += (m-1)
-    right += 1
-
-print(answer + left + right)
+print(answer)
